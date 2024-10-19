@@ -8,29 +8,31 @@
         :required="required"
         :min="min"
         :max="max"
-        :value="value"
-        :autocomplete="name + '-new'"        
+        :value="modelValue"
+        :autocomplete="name + '-new'"
+        @input="$emit('update:modelValue', $event.target.value)"       
         class="form-control"
     >
   </div>
 </template>
 
 <script setup>
-    import { defineProps } from 'vue';
-    const props = defineProps([
-        'for',
-        'type',
-        'name',
-        'placeholder',
-        'required',
-        'min',
-        'max',
-        'value',
-        'autocomplete',
-        'label',
-    ]);
+    import { defineProps, defineEmits } from 'vue';
+    defineProps({
+        for:String,
+        type:String,
+        name:String,
+        placeholder:String,
+        required:String,
+        min:String,
+        max:String,
+        modelValue:String,
+        autocomplete:String,
+        label:String,
+    });
     /* eslint-disable */
-    props.label = 'Label';
+    const emit = defineEmits(["input"]);
+    
 </script>
 
 <style scoped>
