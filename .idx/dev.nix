@@ -13,6 +13,7 @@
             
             extensions = [
                 "golang.go"
+                "octref.vetur"
             ];
     };
 }
